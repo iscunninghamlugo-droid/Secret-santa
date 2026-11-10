@@ -1,3 +1,40 @@
-🎄 Secret Santa Vault 🎄
-Enter the name of the person you're buying for:
-Name Reveal wishlist
+<!DOCTYPE html>
+<html>
+<head>
+<title>Secret Santa Vault</title>
+</head>
+
+<body style="font-family:Arial;text-align:center;padding:40px;">
+
+<h1>🎄 Secret Santa Vault 🎄</h1>
+
+<p>Enter the name of the person you're buying for:</p>
+
+<input id="nameInput">
+<button onclick="showList()">Reveal Wishlist</button>
+
+<div id="result" style="margin-top:20px;"></div>
+
+<script>
+const wishlists = {
+  "Sarah": ["Candles", "Chocolate", "Pyjamas"],
+  "Tom": ["Coffee", "Books", "Socks"]
+};
+
+function showList() {
+  const name = document.getElementById("nameInput").value.trim();
+
+  if (wishlists[name]) {
+    document.getElementById("result").innerHTML =
+      "<h2>" + name + "'s Wishlist</h2><ul>" +
+      wishlists[name].map(item => "<li>" + item + "</li>").join("") +
+      "</ul>";
+  } else {
+    document.getElementById("result").innerHTML =
+      "Name not found.";
+  }
+}
+</script>
+
+</body>
+</html>
